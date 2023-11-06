@@ -15,45 +15,12 @@ public class Main {
 	}
 
 
-	static class Book {
-
-		private String title;
-		private Double price;
-		private Integer quantity;
+	static class Book extends library.Book {
 
 		public Book(String title, Double price, Integer quantity) {
-			this.title = title;
-			this.price = price;
-			this.quantity = quantity;
+			super(title, price, quantity);
 		}
 
-		public Double getFullPrice() {
-			return price * quantity;
-		}
-
-		public String getTitle() {
-			return title;
-		}
-
-		public void setTitle(String title) {
-			this.title = title;
-		}
-
-		public Double getPrice() {
-			return price;
-		}
-
-		public void setPrice(Double price) {
-			this.price = price;
-		}
-
-		public Integer getQuantity() {
-			return quantity;
-		}
-
-		public void setQuantity(Integer quantity) {
-			this.quantity = quantity;
-		}
 	}
 
 }
