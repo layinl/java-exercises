@@ -15,8 +15,9 @@ import java.util.stream.Stream;
  *  <li>price</li>
  *  <li>quantity</li>
  * </ul>
- *
- * You may input as many as you want
+ * It also prints the total value and the number of books that was bought
+ * You may input as many books as you want
+ * @see Book
  */
 public class Main {
 

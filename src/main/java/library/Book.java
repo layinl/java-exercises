@@ -1,5 +1,8 @@
 package library;
 
+/**
+ * The Book class vaguely represents a book on sale
+ */
 public class Book {
 	protected String title;
 	protected Double price;
