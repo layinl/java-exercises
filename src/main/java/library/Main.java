@@ -46,8 +46,8 @@ public class Main {
 			isContinue = scan.nextLine();
 		} while (isContinue.equalsIgnoreCase("y"));
 
-		for(Book book : books) totalPrice += book.getFullPrice();
-		for(Book book : books) totalQuantity += book.getQuantity();
+		for (Book book : books) totalPrice += book.getFullPrice();
+		for (Book book : books) totalQuantity += book.getQuantity();
 
 		System.out.print(
 			"Total price: " + String.format("%.2f", totalPrice)
