@@ -2,6 +2,11 @@ package meangrade;
 
 import java.util.Scanner;
 
+/**
+ * This program prints if your grade mean will be either
+ * <b>Failed</b>, <b>Average</b>, or <b>Approved</b>
+ * based on input
+ */
 public class Main {
 
 	public static void main(String[] args) {
@@ -13,8 +18,9 @@ public class Main {
 			return;
 		}
 		System.out.println(
-			(mean < 5)? "REP" :
-			(mean < 7)? "MED" : "APR"
+			(mean < 5)? "FAIL" :
+			(mean < 7)? "AVG" :
+				"APR"
 		);
 	}
 
