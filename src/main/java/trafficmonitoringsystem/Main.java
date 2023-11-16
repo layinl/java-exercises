@@ -19,11 +19,12 @@ public class Main {
 		String alternativeRoute = suggestAlternativeRoute(trafficEvent);
 
 		System.out.println(alternativeRoute);
-*/
+		*/
 		// TODO: if you're using Java 13 or later, opt for
 		//  legacySuggestAlternativeRoute() and comment
 		//  suggestAlternativeRoute()
 		// This will do the same thing as the code above
+		System.out.print("Input traffic status: ");
 		System.out.println(
 			legacySuggestAlternativeRoute(
 				new Scanner(System.in)
