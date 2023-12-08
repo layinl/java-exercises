@@ -10,9 +10,22 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		double a = sc.nextDouble(), b = sc.nextDouble();
+		System.out.println("Please input the first number");
+		double a = sc.nextDouble(), b;
+		System.out.println("Please input the second number");
+		b = sc.nextDouble();
 
-		System.out.printf("MEDIA = %.5f\n", (a * 3.5 + b * 7.5) / 11);
+		System.out.println("What operation will you do?\n" +
+			"'sum', 'multiply', 'average'");
+		String operation = sc.next().toLowerCase();
+		System.out.println("Result: " + (
+			switch(operation) {
+				case "sum" -> sum(a, b);
+				case "multiply" -> multiply(a, b);
+				case "average" -> average(a, b);
+				default -> "Invalid input";
+			}
+		));
 
 	}
 
