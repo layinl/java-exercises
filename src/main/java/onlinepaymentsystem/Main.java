@@ -8,7 +8,8 @@ import java.util.Scanner;
  * purchase transaction.
  * <br/>
  * It may be done by either Boleto (a Brazilian's
- * <s>obsolete</s> payment method) or Credit Card.
+ * <s>obsolete</s> payment method, Credit Card or Pix (a recent
+ * Brazil's paymenment method).
  *
  */
 public class Main {
@@ -66,6 +67,16 @@ public class Main {
 		// Gonna do this sh*t later. I'm too lazy for now
 		System.out.println("The payment with credit card was processed " +
 			"successfully.");
+	}
+
+	/**
+	 * Processes the Pix payment (actually just prints
+	 * that it was succeded for now)
+	 */
+	private static void processPixPayment() {
+		// TODO: Create a pix link
+		System.out.println("The Pix payment was processed" +
+			" successfully.");
 	}
 
 }
