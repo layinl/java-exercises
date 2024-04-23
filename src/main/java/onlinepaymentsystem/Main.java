@@ -9,7 +9,7 @@ import java.util.Scanner;
  * <br/>
  * It may be done by either Boleto (a Brazilian's
  * <s>obsolete</s> payment method, Credit Card or Pix (a recent
- * Brazil's paymenment method).
+ * Brazil's payment method).
  *
  */
 public class Main {
