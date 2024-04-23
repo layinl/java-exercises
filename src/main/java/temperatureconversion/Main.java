@@ -1,4 +1,4 @@
-package temperatureConversion;
+package temperatureconversion;
 
 import java.util.Scanner;
 
