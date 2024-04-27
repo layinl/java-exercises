@@ -78,7 +78,7 @@ public class Main {
   /**
    * Transfers the specified value if the value does not exceed total
    * balance and subtracts it
-   * @param value the value to be transfered
+   * @param value the value to be transferred
    */
   private void transferValue(Double value) {
     if (balance >= value) balance -= value;
