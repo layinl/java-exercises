@@ -3,49 +3,49 @@ package br.com.alura.screenmatch.models;
 import br.com.alura.screenmatch.operations.Classifiable;
 
 public class Episode implements Classifiable {
-    private int number;
-    private String name;
-    private Series series;
-    private int totalViews;
+  private int number;
+  private String name;
+  private Series series;
+  private int totalViews;
 
-    public int getTotalViews() {
-        return totalViews;
-    }
+  public int getTotalViews() {
+    return totalViews;
+  }
 
-    public void setTotalViews(int totalViews) {
-        this.totalViews = totalViews;
-    }
+  public void setTotalViews(int totalViews) {
+    this.totalViews = totalViews;
+  }
 
-    public int getNumber() {
-        return number;
-    }
+  public int getNumber() {
+    return number;
+  }
 
-    public void setNumber(int number) {
-        this.number = number;
-    }
+  public void setNumber(int number) {
+    this.number = number;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public Series getSerie() {
-        return series;
-    }
+  public Series getSerie() {
+    return series;
+  }
 
-    public void setSerie(Series series) {
-        this.series = series;
-    }
+  public void setSerie(Series series) {
+    this.series = series;
+  }
 
-    @Override
-    public int getRating() {
-        if (totalViews > 100) {
-            return 4;
-        } else {
-            return 2;
-        }
+  @Override
+  public int getRating() {
+    if (totalViews > 100) {
+      return 4;
+    } else {
+      return 2;
     }
+  }
 }
