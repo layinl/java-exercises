@@ -1,50 +1,50 @@
 package br.com.alura.screenmatch.models;
 
 public class Series extends Title {
-    private int temporadas;
-    private boolean ativa;
-    private int episodiosPorTemporada;
-    private int minutosPorEpisodio;
+    private int seasons;
+    private boolean active;
+    private int episodesPerSeason;
+    private int minutesPerEpisode;
 
-    public Series(String nome, int anoDeLancamento) {
-        super(nome, anoDeLancamento);
+    public Series(String name, int launchYear) {
+        super(name, launchYear);
     }
 
-    public int getTemporadas() {
-        return temporadas;
+    public int getSeasons() {
+        return seasons;
     }
 
-    public void setTemporadas(int temporadas) {
-        this.temporadas = temporadas;
+    public void setSeasons(int seasons) {
+        this.seasons = seasons;
     }
 
-    public boolean isAtiva() {
-        return ativa;
+    public boolean isActive() {
+        return active;
     }
 
-    public void setAtiva(boolean ativa) {
-        this.ativa = ativa;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
-    public int getEpisodiosPorTemporada() {
-        return episodiosPorTemporada;
+    public int getEpisodesPerSeason() {
+        return episodesPerSeason;
     }
 
-    public void setEpisodiosPorTemporada(int episodiosPorTemporada) {
-        this.episodiosPorTemporada = episodiosPorTemporada;
+    public void setEpisodesPerSeason(int episodesPerSeason) {
+        this.episodesPerSeason = episodesPerSeason;
     }
 
-    public int getMinutosPorEpisodio() {
-        return minutosPorEpisodio;
+    public int getMinutesPerEpisode() {
+        return minutesPerEpisode;
     }
 
-    public void setMinutosPorEpisodio(int minutosPorEpisodio) {
-        this.minutosPorEpisodio = minutosPorEpisodio;
+    public void setMinutesPerEpisode(int minutosPorEpisodio) {
+        this.minutesPerEpisode = minutosPorEpisodio;
     }
 
     @Override
     public int getDurationInMinutes() {
-        return temporadas * episodiosPorTemporada * minutosPorEpisodio;
+        return seasons * episodesPerSeason * minutesPerEpisode;
     }
 
     @Override

@@ -12,42 +12,42 @@ import java.util.List;
 
 public class MainWithLists {
     public static void main(String[] args) {
-        Movie meuMovie = new Movie("O poderoso chefão", 1970);
-        meuMovie.rate(9);
-        Movie outroMovie = new Movie("Avatar", 2023);
-        outroMovie.rate(6);
-        var filmeDoPaulo = new Movie("Dogville", 2003);
-        filmeDoPaulo.rate(10);
+        Movie myMovie = new Movie("O poderoso chefão", 1970);
+        myMovie.rate(9);
+        Movie anotherMovie = new Movie("Avatar", 2023);
+        anotherMovie.rate(6);
+        var pauloMovie = new Movie("Dogville", 2003);
+        pauloMovie.rate(10);
         Series lost = new Series("Lost", 2000);
 
-        Movie f1 = filmeDoPaulo;
+        Movie f1 = pauloMovie;
 
-        ArrayList<Title> lista = new ArrayList<>();
-        lista.add(filmeDoPaulo);
-        lista.add(meuMovie);
-        lista.add(outroMovie);
-        lista.add(lost);
-        for (Title item: lista) {
+        ArrayList<Title> list = new ArrayList<>();
+        list.add(pauloMovie);
+        list.add(myMovie);
+        list.add(anotherMovie);
+        list.add(lost);
+        for (Title item: list) {
             System.out.println(item.getName());
             if (item instanceof  Movie movie && movie.getRating() > 2) {
                 System.out.println("Classificação " + movie.getRating());
             }
         }
 
-        List<String> buscaPorArtista = new LinkedList<>();
-        buscaPorArtista.add("Adam Sandler");
-        buscaPorArtista.add("Paulo");
-        buscaPorArtista.add("Jacqueline");
-        System.out.println(buscaPorArtista);
+        List<String> searchByArtist = new LinkedList<>();
+        searchByArtist.add("Adam Sandler");
+        searchByArtist.add("Paulo");
+        searchByArtist.add("Jacqueline");
+        System.out.println(searchByArtist);
 
-        Collections.sort(buscaPorArtista);
+        Collections.sort(searchByArtist);
         System.out.println("Depois da ordenação");
-        System.out.println(buscaPorArtista);
+        System.out.println(searchByArtist);
         System.out.println("Lista de titulos ordenados");
-        Collections.sort(lista);
-        System.out.println(lista);
-        lista.sort(Comparator.comparing(Title::getLaunchYear));
+        Collections.sort(list);
+        System.out.println(list);
+        list.sort(Comparator.comparing(Title::getLaunchYear));
         System.out.println("Ordenando por ano");
-        System.out.println(lista);
+        System.out.println(list);
     }
 }
