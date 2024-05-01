@@ -28,4 +28,4 @@ bin/
 ### Mac OS ###
 .DS_Store
 /target/classes/quickmaths/Main.class
-/src/main/java/br/com/alura/booksearch/APIKey.java
+/src/main/java/br/com/alura/**/APIKey.java

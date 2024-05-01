@@ -15,8 +15,8 @@ public class Main {
 
   void main() throws IOException, InterruptedException {
     // You'll need to create this class with an API Key
-    final String key = APIKey.get();
-    String address = STR."https://www.googleapis.com/books/v1/volumes?key=\{key}&q=";
+    final String KEY = APIKey.get();
+    String address = STR."https://www.googleapis.com/books/v1/volumes?key=\{KEY}&q=";
 
     System.out.println("Please type the book you want to search: ");
     address += slugify(new Scanner(System.in).nextLine());
