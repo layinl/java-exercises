@@ -14,7 +14,8 @@ import java.util.Scanner;
 public class Main {
 
   void main() throws IOException, InterruptedException {
-    final String key = "AIzaSyC449v9tTXi1ubgSrHmYvosRHUAqLSYglI";
+    // You'll need to create this class with an API Key
+    final String key = APIKey.get();
     String address = STR."https://www.googleapis.com/books/v1/volumes?key=\{key}&q=";
 
     System.out.println("Please type the book you want to search: ");
