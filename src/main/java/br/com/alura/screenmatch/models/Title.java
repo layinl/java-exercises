@@ -1,7 +1,11 @@
 package br.com.alura.screenmatch.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Title implements Comparable<Title> {
+  @SerializedName("Title")
   private String name;
+  @SerializedName("Year")
   private int launchYear;
   private boolean planIncluded;
   private double ratingsSum;
@@ -66,5 +70,16 @@ public class Title implements Comparable<Title> {
   @Override
   public int compareTo(Title outroTitle) {
     return this.getName().compareTo(outroTitle.getName());
+  }
+
+  @Override
+  public String toString() {
+    return STR.
+      """
+      {
+      name: '\{name}',
+      launchYear: '\{launchYear}'
+      }
+      """;
   }
 }
