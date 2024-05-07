@@ -7,6 +7,8 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Scanner;
 
+import static br.com.alura.booksearch.APIKey.API_KEY;
+
 /**
  * The Book Search program searches the books by title in the Google
  * Books API
@@ -15,8 +17,7 @@ public class Main {
 
   void main() throws IOException, InterruptedException {
     // You'll need to create this class with an API Key
-    final String KEY = APIKey.get();
-    String address = STR."https://www.googleapis.com/books/v1/volumes?key=\{KEY}&q=";
+    String address = STR."https://www.googleapis.com/books/v1/volumes?key=\{API_KEY}&q=";
 
     System.out.println("Please type the book you want to search: ");
     address += slugify(new Scanner(System.in).nextLine());
