@@ -1,5 +1,6 @@
 package br.com.alura.screenmatch.models;
 
+import br.com.alura.screenmatch.exceptions.YearFormatException;
 import com.google.gson.annotations.SerializedName;
 
 public class Title implements Comparable<Title> {
@@ -19,6 +20,8 @@ public class Title implements Comparable<Title> {
 
   public Title(TitleOmdb titleOmdb) {
     this.name = titleOmdb.title();
+    if(titleOmdb.year().length() > 4)
+      throw new YearFormatException("Wrong year format. It must have up to 4 characters");
     this.launchYear = Integer.parseInt(titleOmdb.year());
     this.durationInMinutes = Integer.parseInt(titleOmdb.runtime().substring(0, 2));
   }

@@ -1,5 +1,6 @@
 package br.com.alura.screenmatch.main;
 
+import br.com.alura.screenmatch.exceptions.YearFormatException;
 import br.com.alura.screenmatch.models.Title;
 import br.com.alura.screenmatch.models.TitleOmdb;
 import com.google.gson.FieldNamingPolicy;
@@ -21,22 +22,35 @@ public class MainWithSearch {
     var search = scan.nextLine();
     String address = STR."https://www.omdbapi.com/?t=\{search}&apikey=7e7539a";
 
-    HttpClient client = HttpClient.newHttpClient();
-    HttpRequest request = HttpRequest.newBuilder()
-      .uri(URI.create(address))
-      .build();
-    HttpResponse<String> response = client
-      .send(request, HttpResponse.BodyHandlers.ofString());
-    String json = response.body();
-    System.out.println(json);
+    try {
+      HttpClient client = HttpClient.newHttpClient();
+      HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(address))
+        .build();
+      HttpResponse<String> response = client
+        .send(request, HttpResponse.BodyHandlers.ofString());
+      String json = response.body();
+      System.out.println(json);
+      Gson gson = new GsonBuilder()
+        .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+        .create();
+      TitleOmdb myTitleOmdb = gson.fromJson(json, TitleOmdb.class);
+      System.out.println(myTitleOmdb);
+      Title myTitle = new Title(myTitleOmdb);
+      System.out.println(
+        STR."""
+        Title after conversion:
+        \{myTitle}
+        """
+      );
+    } catch (YearFormatException e) {
+      System.out.print(STR."A year format error ocurred → \{e.getMessage()}");
+    } catch (IllegalArgumentException e) {
+      System.out.println(STR.
+        "An invalid url error ocurred → \{e.getMessage()}"
+      );
+    }
 
-    Gson gson = new GsonBuilder()
-      .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-      .create();
-    TitleOmdb myTitleOmdb = gson.fromJson(json, TitleOmdb.class);
-    System.out.println(myTitleOmdb);
-    Title myTitle = new Title(myTitleOmdb);
-    System.out.println(myTitle);
   }
 
 }
