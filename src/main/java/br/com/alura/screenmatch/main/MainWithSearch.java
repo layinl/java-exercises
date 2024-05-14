@@ -7,6 +7,7 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -31,11 +32,13 @@ public class MainWithSearch {
         .send(request, HttpResponse.BodyHandlers.ofString());
       String json = response.body();
       System.out.println(json);
+
       Gson gson = new GsonBuilder()
         .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
         .create();
       TitleOmdb myTitleOmdb = gson.fromJson(json, TitleOmdb.class);
       System.out.println(myTitleOmdb);
+
       Title myTitle = new Title(myTitleOmdb);
       System.out.println(
         STR."""
@@ -43,12 +46,20 @@ public class MainWithSearch {
         \{myTitle}
         """
       );
+
+      FileWriter file = new FileWriter("movies.txt");
+      file.write(myTitle.toString());
+      file.close();
     } catch (YearFormatException e) {
-      System.out.print(STR."A year format error ocurred → \{e.getMessage()}");
+      System.out.print(STR.
+        "An year format error ocurred → \{e.getMessage()}");
     } catch (IllegalArgumentException e) {
       System.out.println(STR.
         "An invalid url error ocurred → \{e.getMessage()}"
       );
+    } catch (Exception e) {
+      System.out.println(STR.
+        "An unexpected error ocurred → \{e.getMessage()}");
     }
 
   }
