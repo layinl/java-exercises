@@ -8,35 +8,29 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.io.IOException;
+import java.io.FileWriter;
 import java.util.Scanner;
 
-public class MainWithSearch {
+public class MainWithFile {
 
-  public static void main(String[] args) throws IOException, InterruptedException {
+  public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
-    System.out.println("Please type a movie to search: ");
+    System.out.println("Please type a movie to search and store locally: ");
     var search = scan.nextLine();
-//    String address = STR."https://www.omdbapi.com/?t=\{search}&apikey=7e7539a";
 
-    try {
+    try (FileWriter movies = new FileWriter("movies.json")) {
       String json = TitleRequest.sendRequestByTitle(search);
-      System.out.println(json);
 
       Gson gson = new GsonBuilder()
         .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
         .setPrettyPrinting()
         .create();
       TitleOmdb myTitleOmdb = gson.fromJson(json, TitleOmdb.class);
-      System.out.println(myTitleOmdb);
-
       Title myTitle = new Title(myTitleOmdb);
-      System.out.println(
-        STR."""
-        Title after conversion:
-        \{myTitle}
-        """
-      );
+      String titleInJson = gson.toJson(myTitle);
+
+      movies.write(titleInJson);
+      System.out.println(titleInJson);
     } catch (YearFormatException e) {
       System.out.print(STR.
         "An year format error ocurred → \{e.getMessage()}");

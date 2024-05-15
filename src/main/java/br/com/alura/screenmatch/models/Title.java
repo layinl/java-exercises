@@ -86,8 +86,8 @@ public class Title implements Comparable<Title> {
     return STR.
       """
       {
-        name: '\{name}',
-        launchYear: '\{launchYear}'
+        name: "\{name}",
+        launchYear: \{launchYear}
       }
       """;
   }
